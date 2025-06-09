@@ -13,7 +13,7 @@ async function getUser(email: string): Promise<User | undefined> {
     const user = await sql<User[]>`SELECT * FROM users WHERE email=${email}`;
     return user[0];
   } catch (error) {
-    console.error('Failed to fetch user:', error);
+    // console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
   }
 }
@@ -39,7 +39,7 @@ export const { auth, signIn, signOut } = NextAuth({
           if (passwordsMatch) return user;
         }
  
-        console.log('Invalid credentials');
+        // console.log('Invalid credentials');
         return null;
       },
   })],
